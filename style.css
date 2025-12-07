@@ -212,7 +212,7 @@ video {
 
 .aw-llama-video {
   width: 100%;
-  max-width: 600px;
+  max-width: 550px;
   min-width: 280px;
   height: auto;
 }
@@ -284,18 +284,19 @@ video {
     font-size: 15px;
     padding: 0 15px;
     max-width: 300px;
-    margin: 12px auto 0;
+    margin: 12px auto 12px;
   }
 
   .aw-404 {
-    font-size: 28vw;
+    font-size: 58vw;
     width: 100%;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     box-sizing: border-box;
     align-items: flex-start;
-    padding-top: 15vh;
+    /* padding-top: 15vh; */
+    top: 20%;
     transform: none;
-    left: 0;
+    /* left: 0; */
   }
 
   .aw-btn {
