@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Allwake – 404</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    />
+
+    <!-- GSAP CDN -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+
+    <!-- Main JS -->
+    <script src="./main.js" defer></script>
+  </head>
+  <body class="aw-page">
+    <header class="aw-header">
+      <div class="aw-logo">
+        <img src="./assets/icons/allwake-logo.svg" alt="Allwake logo" />
+        <span>Allwake</span>
+      </div>
+
+      <button class="aw-btn aw-btn--login">Log in</button>
+    </header>
+
+    <main class="aw-hero">
+      <div class="aw-hero-inner">
+        <div class="aw-hero-bg">
+          <img
+            src="./assets/img/clouds-bg.png"
+            alt="Cloud background"
+            class="aw-clouds"
+          />
+          <div class="aw-404">404</div>
+        </div>
+
+        <div class="aw-hero-content">
+          <div class="aw-llama-wrapper">
+            <video
+              class="aw-llama-video"
+              src="./assets/video/allwake-alpaca-404.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+          </div>
+
+          <section class="aw-copy">
+            <h1>Oops, looks like we’re lost.</h1>
+            <p>Let’s get you back to somewhere familiar…</p>
+
+            <button class="aw-btn aw-btn--primary">
+              <span class="aw-cta-icon">
+                <img src="./assets/icons/arrow-back.svg" alt="" />
+              </span>
+              <span>Back to home</span>
+            </button>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

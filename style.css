@@ -1,0 +1,281 @@
+/* -----------------------------
+   Global / Reset
+----------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:root {
+  /* Background sky */
+  --aw-bg-top: #5c9fcb;
+  --aw-bg-bottom: #ebf1fb;
+
+  /* 404 gradient */
+  --aw-404-start: #ffffff;
+  --aw-404-end: #e4ecf9;
+
+  /* Text colors */
+  --aw-text-dark: #2c2a49;
+  --aw-text-muted: #6e6e6e;
+  --aw-logo-text: #ffffff;
+
+  /* Button fills */
+  --aw-btn-fill-start: #ffffff;
+  --aw-btn-fill-end: #f9f9f9;
+}
+
+body {
+  min-height: 100vh;
+  height: 100vh;
+  font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  color: var(--aw-text-dark);
+  background: linear-gradient(
+    180deg,
+    var(--aw-bg-top) 0%,
+    var(--aw-bg-bottom) 75%
+  );
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* -----------------------------
+   Layout
+----------------------------- */
+
+.aw-page {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -----------------------------
+   Header
+----------------------------- */
+
+.aw-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px clamp(14px, 4vw, 36px);
+}
+
+.aw-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--aw-logo-text);
+}
+
+.aw-logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.aw-logo span {
+  font-weight: 600; /* SemiBold */
+  font-size: 28px;
+  letter-spacing: -0.05em;
+}
+
+/* -----------------------------
+   Buttons (shared base)
+----------------------------- */
+
+.aw-btn {
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: inherit;
+  font-weight: 600; /* SemiBold */
+  letter-spacing: -0.05em;
+  font-size: 18px;
+
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f1f1 100%);
+
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25),
+    0px 0px 0px 1px rgba(110, 110, 110, 0.4), 0px 1px 0px #ffffff,
+    0px 3px 4px -1px rgb(114, 114, 114);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.aw-btn:focus {
+  outline: 2px solid rgba(44, 42, 73, 0.3);
+  outline-offset: 3px;
+}
+
+.aw-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Log in button variation */
+
+.aw-btn--login {
+  color: #6e6e6e;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15),
+    0px 0px 0px 1px rgba(0, 0, 0, 0.03);
+}
+
+/* Primary CTA variation (Back to home) */
+
+.aw-btn--primary {
+  color: var(--aw-text-dark);
+  gap: 4px;
+}
+
+/* -----------------------------
+   Hero 404
+----------------------------- */
+
+.aw-hero {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Clouds + 404 background */
+
+.aw-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.aw-clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 140%;
+  object-fit: cover;
+}
+
+/* Big 404 */
+
+.aw-404 {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(200px, 38vw, 735px);
+  letter-spacing: -0.09em;
+
+  background: linear-gradient(
+    180deg,
+    var(--aw-404-start) 0%,
+    var(--aw-404-end) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  pointer-events: none;
+  transform: translateY(-15%);
+}
+
+/* Hero content (llama + copy + CTA) */
+
+.aw-hero-content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1120px;
+
+  z-index: 2;
+  mix-blend-mode: darken;
+
+  margin-bottom: 8vh;
+}
+
+/* Llama */
+
+.aw-llama-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+  margin-bottom: -40px;
+}
+
+.aw-llama-video {
+  /* max-width: clamp(260px, 30vw, 340px); */
+  width: 40vw;
+  height: auto;
+}
+
+/* Copy */
+
+.aw-copy {
+  text-align: center;
+}
+
+.aw-copy h1 {
+  margin: 0 0 -10px;
+  font-size: clamp(32px, 3.5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: var(--aw-text-dark);
+}
+
+.aw-copy p {
+  margin: 0 0 16px;
+  font-size: clamp(16px, 1.5vw, 24px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--aw-text-muted);
+}
+
+/* -----------------------------
+   Responsive
+----------------------------- */
+
+@media (max-width: 767px) {
+  .aw-header {
+    padding-inline: 16px;
+  }
+
+  .aw-llama-video {
+    max-width: 220px;
+  }
+
+  .aw-llama-wrapper {
+    margin-bottom: -40px;
+  }
+}
