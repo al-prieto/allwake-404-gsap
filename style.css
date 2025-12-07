@@ -36,7 +36,6 @@ body {
 
 body {
   min-height: 100vh;
-  height: 100vh;
   font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
   color: var(--aw-text-dark);
@@ -46,7 +45,7 @@ body {
     var(--aw-bg-bottom) 75%
   );
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 img,
@@ -90,13 +89,13 @@ video {
 }
 
 .aw-logo span {
-  font-weight: 600; /* SemiBold */
+  font-weight: 600;
   font-size: 28px;
   letter-spacing: -0.05em;
 }
 
 /* -----------------------------
-   Buttons (shared base)
+   Buttons
 ----------------------------- */
 
 .aw-btn {
@@ -109,7 +108,7 @@ video {
   justify-content: center;
 
   font-family: inherit;
-  font-weight: 600; /* SemiBold */
+  font-weight: 600;
   letter-spacing: -0.05em;
   font-size: 18px;
 
@@ -132,7 +131,7 @@ video {
   transform: translateY(-1px);
 }
 
-/* Log in button variation */
+/* Log in button */
 
 .aw-btn--login {
   color: #6e6e6e;
@@ -140,7 +139,7 @@ video {
     0px 0px 0px 1px rgba(0, 0, 0, 0.03);
 }
 
-/* Primary CTA variation (Back to home) */
+/* Primary CTA (Back to home) */
 
 .aw-btn--primary {
   color: var(--aw-text-dark);
@@ -205,6 +204,7 @@ video {
 
   pointer-events: none;
   transform: translateY(-15%);
+  z-index: 0;
 }
 
 /* Hero content (llama + copy + CTA) */
@@ -231,12 +231,13 @@ video {
   justify-content: center;
   width: 100%;
   pointer-events: none;
-  margin-bottom: -40px;
+  margin-bottom: -4vh;
 }
 
 .aw-llama-video {
-  /* max-width: clamp(260px, 30vw, 340px); */
-  width: 40vw;
+  width: 100%;
+  max-width: 500px;
+  min-width: 280px;
   height: auto;
 }
 
@@ -266,16 +267,95 @@ video {
    Responsive
 ----------------------------- */
 
+@media (max-width: 1024px) {
+  /* Tablets and small laptops */
+  .aw-404 {
+    font-size: clamp(200px, 50vw, 500px);
+    transform: translateY(-10%);
+  }
+}
+
 @media (max-width: 767px) {
+  /* Mobile */
+
+  .aw-page {
+    /* Allow scroll on small screens */
+    height: auto;
+    min-height: 100vh;
+  }
+
   .aw-header {
-    padding-inline: 16px;
+    padding: 16px 20px;
   }
 
   .aw-llama-video {
-    max-width: 220px;
+    max-width: 320px;
+    width: 80%;
   }
 
   .aw-llama-wrapper {
-    margin-bottom: -40px;
+    margin-bottom: -20px;
+  }
+
+  .aw-hero-content {
+    margin-top: 40px;
+    padding-bottom: 60px;
+    margin-bottom: 0;
+  }
+
+  .aw-copy h1 {
+    font-size: 32px;
+    padding: 0 20px;
+  }
+
+  .aw-copy p {
+    font-size: 18px;
+    padding: 0 20px;
+  }
+
+  .aw-404 {
+    font-size: 45vh;
+    align-items: flex-start;
+    padding-top: 2vh;
+    transform: none;
+  }
+
+  body {
+    background: linear-gradient(
+      180deg,
+      var(--aw-bg-top) 0%,
+      var(--aw-bg-bottom) 65%
+    );
+  }
+
+  /* --- Ajuste de Botones "Delicados" en Móvil --- */
+
+  .aw-btn {
+    font-size: 14px; /* Bajamos de 18px a 14px para que se vea fino */
+    padding: 8px 16px; /* Reducimos el "aire" para que no se vean gordos */
+    border-radius: 12px; /* Ajustamos levemente la curva al nuevo tamaño */
+    gap: 6px; /* Espacio entre texto e ícono más cerrado */
+  }
+
+  /* Ajuste específico para el botón del Header (Log in) */
+  .aw-btn--login {
+    padding: 6px 14px; /* Aún más compacto para que no pelee con el logo */
+    font-size: 13px;
+  }
+
+  /* Ajustamos el tamaño del ícono de la flecha dentro del botón */
+  .aw-cta-icon img {
+    width: 16px;
+    height: 16px;
+  }
+  .aw-logo img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .aw-logo span {
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.05em;
   }
 }
