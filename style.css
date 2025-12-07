@@ -160,6 +160,7 @@ video {
   height: 100%;
   width: 140%;
   object-fit: cover;
+  display: none;
 }
 
 .aw-404 {
@@ -294,9 +295,13 @@ video {
     box-sizing: border-box;
     align-items: flex-start;
     /* padding-top: 15vh; */
-    top: 20%;
-    transform: none;
+    /* top: 20%;
+    transform: none; */
     /* left: 0; */
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .aw-btn {
@@ -333,5 +338,12 @@ video {
       var(--aw-bg-top) 0%,
       var(--aw-bg-bottom) 65%
     );
+  }
+}
+
+@media (max-width: 426px) {
+  .aw-404 {
+    top: 38%;
+    left: 48%;
   }
 }
