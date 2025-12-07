@@ -271,6 +271,7 @@ video {
     /* margin-top: 40px; */
     /* padding-bottom: 60px; */
     margin-bottom: 0;
+    display: none;
   }
 
   .aw-copy h1 {
