@@ -16,20 +16,14 @@ body {
 }
 
 :root {
-  /* Background sky */
+  /* Theme colors */
   --aw-bg-top: #5c9fcb;
   --aw-bg-bottom: #ebf1fb;
-
-  /* 404 gradient */
   --aw-404-start: #ffffff;
   --aw-404-end: #e4ecf9;
-
-  /* Text colors */
   --aw-text-dark: #2c2a49;
   --aw-text-muted: #6e6e6e;
   --aw-logo-text: #ffffff;
-
-  /* Button fills */
   --aw-btn-fill-start: #ffffff;
   --aw-btn-fill-end: #f9f9f9;
 }
@@ -102,23 +96,18 @@ video {
   border: none;
   border-radius: 16px;
   cursor: pointer;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   font-family: inherit;
   font-weight: 600;
   letter-spacing: -0.05em;
   font-size: 18px;
-
   padding: 10px 20px;
   background: linear-gradient(180deg, #ffffff 0%, #f1f1f1 100%);
-
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25),
     0px 0px 0px 1px rgba(110, 110, 110, 0.4), 0px 1px 0px #ffffff,
     0px 3px 4px -1px rgb(114, 114, 114);
-
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
@@ -131,15 +120,11 @@ video {
   transform: translateY(-1px);
 }
 
-/* Log in button */
-
 .aw-btn--login {
   color: #6e6e6e;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15),
     0px 0px 0px 1px rgba(0, 0, 0, 0.03);
 }
-
-/* Primary CTA (Back to home) */
 
 .aw-btn--primary {
   color: var(--aw-text-dark);
@@ -147,7 +132,7 @@ video {
 }
 
 /* -----------------------------
-   Hero 404
+   Hero 404 section
 ----------------------------- */
 
 .aw-hero {
@@ -158,8 +143,6 @@ video {
   justify-content: center;
   overflow: hidden;
 }
-
-/* Clouds + 404 background */
 
 .aw-hero-bg {
   position: absolute;
@@ -179,20 +162,16 @@ video {
   object-fit: cover;
 }
 
-/* Big 404 */
-
 .aw-404 {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: clamp(200px, 38vw, 735px);
   letter-spacing: -0.09em;
-
   background: linear-gradient(
     180deg,
     var(--aw-404-start) 0%,
@@ -201,13 +180,14 @@ video {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-
   pointer-events: none;
   transform: translateY(-15%);
   z-index: 0;
 }
 
-/* Hero content (llama + copy + CTA) */
+/* -----------------------------
+   Content (Llama + text + CTA)
+----------------------------- */
 
 .aw-hero-content {
   position: relative;
@@ -217,14 +197,10 @@ video {
   align-items: center;
   justify-content: center;
   max-width: 1120px;
-
   z-index: 2;
   mix-blend-mode: darken;
-
   margin-bottom: 8vh;
 }
-
-/* Llama */
 
 .aw-llama-wrapper {
   display: flex;
@@ -236,12 +212,10 @@ video {
 
 .aw-llama-video {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   min-width: 280px;
   height: auto;
 }
-
-/* Copy */
 
 .aw-copy {
   text-align: center;
@@ -268,7 +242,6 @@ video {
 ----------------------------- */
 
 @media (max-width: 1024px) {
-  /* Tablets and small laptops */
   .aw-404 {
     font-size: clamp(200px, 50vw, 500px);
     transform: translateY(-10%);
@@ -276,10 +249,7 @@ video {
 }
 
 @media (max-width: 767px) {
-  /* Mobile */
-
   .aw-page {
-    /* Allow scroll on small screens */
     height: auto;
     min-height: 100vh;
   }
@@ -289,8 +259,8 @@ video {
   }
 
   .aw-llama-video {
-    max-width: 320px;
-    width: 80%;
+    width: 85%;
+    max-width: 300px;
   }
 
   .aw-llama-wrapper {
@@ -305,49 +275,46 @@ video {
 
   .aw-copy h1 {
     font-size: 32px;
-    padding: 0 20px;
+    line-height: 1.15;
+    padding: 0 10px;
+    text-wrap: balance;
   }
 
   .aw-copy p {
-    font-size: 18px;
-    padding: 0 20px;
+    font-size: 15px;
+    padding: 0 15px;
+    max-width: 300px;
+    margin: 12px auto 0;
   }
 
   .aw-404 {
-    font-size: 45vh;
+    font-size: 28vw;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
     align-items: flex-start;
-    padding-top: 2vh;
+    padding-top: 15vh;
     transform: none;
+    left: 0;
   }
-
-  body {
-    background: linear-gradient(
-      180deg,
-      var(--aw-bg-top) 0%,
-      var(--aw-bg-bottom) 65%
-    );
-  }
-
-  /* --- Ajuste de Botones "Delicados" en Móvil --- */
 
   .aw-btn {
-    font-size: 14px; /* Bajamos de 18px a 14px para que se vea fino */
-    padding: 8px 16px; /* Reducimos el "aire" para que no se vean gordos */
-    border-radius: 12px; /* Ajustamos levemente la curva al nuevo tamaño */
-    gap: 6px; /* Espacio entre texto e ícono más cerrado */
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    gap: 6px;
   }
 
-  /* Ajuste específico para el botón del Header (Log in) */
   .aw-btn--login {
-    padding: 6px 14px; /* Aún más compacto para que no pelee con el logo */
+    padding: 6px 14px;
     font-size: 13px;
   }
 
-  /* Ajustamos el tamaño del ícono de la flecha dentro del botón */
   .aw-cta-icon img {
     width: 16px;
     height: 16px;
   }
+
   .aw-logo img {
     width: 24px;
     height: 24px;
@@ -357,5 +324,13 @@ video {
     font-weight: 600;
     font-size: 24px;
     letter-spacing: -0.05em;
+  }
+
+  body {
+    background: linear-gradient(
+      180deg,
+      var(--aw-bg-top) 0%,
+      var(--aw-bg-bottom) 65%
+    );
   }
 }
