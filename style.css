@@ -250,8 +250,9 @@ video {
 
 @media (max-width: 767px) {
   .aw-page {
-    height: auto;
+    /* height: auto; */
     min-height: 100vh;
+    overflow-y: hidden;
   }
 
   .aw-header {
