@@ -1,93 +1,89 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('✅ Script cargado');
+console.log('✅ main.js loaded');
 
-  // Función para dividir en caracteres
-  function splitChars(selector) {
-    const el = document.querySelector(selector);
-    if (!el) {
-      console.error('No se encontró:', selector);
-      return [];
-    }
+// --- helpers to split text ---
 
-    const text = el.textContent;
-    el.innerHTML = '';
-    const chars = [];
-
-    for (let i = 0; i < text.length; i++) {
-      const span = document.createElement('span');
-      span.textContent = text[i];
-      span.style.display = 'inline-block';
-      el.appendChild(span);
-      chars.push(span);
-    }
-
-    console.log(`✅ Split ${selector}:`, chars.length, 'caracteres');
-    return chars;
+function splitChars(selector) {
+  const el = document.querySelector(selector);
+  if (!el) {
+    console.error('Element not found:', selector);
+    return [];
   }
 
-  // Función para dividir en palabras
-  function splitWords(selector) {
-    const el = document.querySelector(selector);
-    if (!el) {
-      console.error('No se encontró:', selector);
-      return [];
+  const text = el.textContent;
+  el.innerHTML = '';
+  const chars = [];
+
+  for (let i = 0; i < text.length; i++) {
+    const span = document.createElement('span');
+    span.textContent = text[i];
+    span.style.display = 'inline-block';
+    el.appendChild(span);
+    chars.push(span);
+  }
+
+  console.log(`✅ Split ${selector}:`, chars.length, 'chars');
+  return chars;
+}
+
+function splitWords(selector) {
+  const el = document.querySelector(selector);
+  if (!el) {
+    console.error('Element not found:', selector);
+    return [];
+  }
+
+  const text = el.textContent;
+  const words = text.split(' ');
+  el.innerHTML = '';
+  const wordEls = [];
+
+  words.forEach((word, i) => {
+    const span = document.createElement('span');
+    span.textContent = word;
+    span.style.display = 'inline-block';
+    el.appendChild(span);
+    wordEls.push(span);
+
+    if (i < words.length - 1) {
+      el.appendChild(document.createTextNode(' '));
     }
+  });
 
-    const text = el.textContent;
-    const words = text.split(' ');
-    el.innerHTML = '';
-    const wordEls = [];
+  console.log(`✅ Split ${selector}:`, wordEls.length, 'words');
+  return wordEls;
+}
 
-    words.forEach((word, i) => {
-      const span = document.createElement('span');
-      span.textContent = word;
-      span.style.display = 'inline-block';
-      el.appendChild(span);
-      wordEls.push(span);
+// --- run once DOM is parsed (thanks to defer) ---
 
-      if (i < words.length - 1) {
-        el.appendChild(document.createTextNode(' '));
-      }
-    });
+const chars404 = splitChars('.aw-404');
+const wordsH1 = splitWords('.aw-copy h1');
+const wordsP = splitWords('.aw-copy p');
 
-    console.log(`✅ Split ${selector}:`, wordEls.length, 'palabras');
-    return wordEls;
-  }
-
-  // Dividir textos
-  const chars404 = splitChars('.aw-404');
-  const wordsH1 = splitWords('.aw-copy h1');
-  const wordsP = splitWords('.aw-copy p');
-
-  if (chars404.length === 0) {
-    console.error('❌ No se pudo dividir el 404!');
-    return;
-  }
-
-  console.log('✅ Iniciando animaciones GSAP');
+if (chars404.length === 0) {
+  console.error('❌ 404 split failed');
+} else {
+  console.log('✅ Starting GSAP timeline');
 
   const tl = gsap.timeline({
     defaults: { ease: 'power2.out' },
-    onStart: () => console.log('▶️ Timeline iniciado'),
-    onComplete: () => console.log('✅ Timeline completado'),
+    onStart: () => console.log('▶️ Timeline started'),
+    onComplete: () => console.log('✅ Timeline complete'),
   });
 
-  // Hacer visible los contenedores
+  // show containers
   gsap.set(['.aw-404', '.aw-copy h1', '.aw-copy p', '.aw-btn'], {
     autoAlpha: 1,
   });
 
-  // Estado inicial de caracteres 404
+  // initial state for 404 chars
   gsap.set(chars404, {
     opacity: 0,
     y: -50,
   });
 
-  console.log('✅ Estado inicial configurado');
-
   tl.addLabel('start');
 
-  // Animación de nubes
+  // clouds
   tl.to(
     '.aw-clouds',
     {
@@ -98,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'start'
   );
 
-  // Header
+  // header
   tl.from(
     '.aw-header',
     {
@@ -110,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'start'
   );
 
-  // 404 caracteres
+  // 404
   tl.to(
     chars404,
     {
@@ -118,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
       opacity: 1,
       duration: 0.77,
       stagger: 0.23,
-      onStart: () => console.log('▶️ Animando 404'),
     },
     'start+=0.15'
   );
@@ -135,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'start+=0.44'
   );
 
-  // Párrafo
+  // paragraph
   tl.from(
     wordsP,
     {
@@ -147,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'start+=0.89'
   );
 
-  // Botón
+  // CTA button
   tl.from(
     '.aw-btn--primary',
     {
@@ -159,4 +154,4 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'start+=1.59'
   );
-});
+}
