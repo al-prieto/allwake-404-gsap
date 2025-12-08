@@ -143,12 +143,17 @@ if (chars404.length === 0) {
   );
 
   // CTA button
-  tl.from(
+  tl.fromTo(
     '.aw-btn--primary',
     {
       x: -34,
       filter: 'blur(20px)',
       opacity: 0,
+    },
+    {
+      x: 0,
+      filter: 'blur(0px)',
+      opacity: 1,
       duration: 0.92,
       ease: 'power4.out',
     },
