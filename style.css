@@ -162,6 +162,7 @@ video {
   object-fit: cover;
 }
 
+/* CLEAN 404 FIX — split-compatible + no clipping issues */
 .aw-404 {
   position: absolute;
   inset: 0;
@@ -171,7 +172,15 @@ video {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: clamp(200px, 38vw, 735px);
-  letter-spacing: -0.09em;
+  letter-spacing: -0.06em;
+  pointer-events: none;
+  transform: translateY(-15%);
+  z-index: 0;
+  color: transparent;
+}
+
+.aw-404 span {
+  display: inline-block;
   background: linear-gradient(
     180deg,
     var(--aw-404-start) 0%,
@@ -179,14 +188,11 @@ video {
   );
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
-  pointer-events: none;
-  transform: translateY(-15%);
-  z-index: 0;
+  -webkit-text-fill-color: transparent;
 }
 
 /* -----------------------------
-   Content (Llama + text + CTA)
+   Content (Text + Video + CTA)
 ----------------------------- */
 
 .aw-hero-content {
@@ -288,10 +294,8 @@ video {
   .aw-404 {
     font-size: 58vw;
     width: 100%;
-
     box-sizing: border-box;
     align-items: flex-start;
-
     position: absolute;
     top: 48%;
     left: 50%;
