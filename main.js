@@ -84,15 +84,34 @@ if (chars404.length === 0) {
   tl.addLabel('start');
 
   // Clouds - gentle horizontal drift
-  gsap.fromTo(
-    '.aw-clouds',
-    { x: 100 },
-    {
-      x: -200, // 🔵 se moverá solo un poquito hacia la izquierda
-      duration: 25, // 🔵 muy suave
-      ease: 'none',
-    }
-  );
+
+  const mm = gsap.matchMedia();
+
+  // Desktop / tablet
+  mm.add('(min-width: 768px)', () => {
+    gsap.fromTo(
+      '.aw-clouds',
+      { x: 100 }, // igual que antes
+      {
+        x: -200,
+        duration: 25,
+        ease: 'none',
+      }
+    );
+  });
+
+  // Mobile
+  mm.add('(max-width: 767px)', () => {
+    gsap.fromTo(
+      '.aw-clouds',
+      { x: -400 }, // 🔴 prueba este valor para arrancar más “a la derecha”
+      {
+        x: -700, // sigue moviéndose un poco hacia la izquierda
+        duration: 25,
+        ease: 'none',
+      }
+    );
+  });
 
   // header
   tl.from(
