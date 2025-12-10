@@ -157,11 +157,11 @@ video {
 
 .aw-clouds {
   position: absolute;
-  top: -25%;
+  top: 0;
   left: 0;
-  height: 160%;
+  height: 100%;
   width: 5000px; /* 🟦 tamaño real de tu imagen */
-  background-image: url('./assets/img/clouds-bg-5000.png');
+  background-image: url('./assets/img/clouds-bg.png');
   background-size: contain; /* 🟩 mantiene proporción exacta */
   background-repeat: no-repeat;
   background-position: top left;
