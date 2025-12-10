@@ -68,6 +68,8 @@ video {
   align-items: center;
   justify-content: space-between;
   padding: 22px clamp(14px, 4vw, 36px);
+  position: relative;
+  z-index: 3;
 }
 
 .aw-logo {
@@ -150,16 +152,23 @@ video {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 1;
+  z-index: 0;
 }
 
 .aw-clouds {
   position: absolute;
-  top: 0;
+  top: -25%;
   left: 0;
-  height: 100%;
-  width: 140%;
-  object-fit: cover;
+  height: 160%;
+  width: 5000px; /* 🟦 tamaño real de tu imagen */
+  background-image: url('./assets/img/clouds-bg-5000.png');
+  background-size: contain; /* 🟩 mantiene proporción exacta */
+  background-repeat: no-repeat;
+  background-position: top left;
+  pointer-events: none;
+  user-select: none;
+  opacity: 65%;
+  z-index: 0;
 }
 
 /* CLEAN 404 FIX — split-compatible + no clipping issues */
@@ -177,6 +186,7 @@ video {
   transform: translateY(-15%);
   z-index: 0;
   color: transparent;
+  z-index: 1;
 }
 
 .aw-404 span {
@@ -204,8 +214,8 @@ video {
   justify-content: center;
   max-width: 1120px;
   z-index: 2;
-  mix-blend-mode: darken;
   margin-bottom: 8vh;
+  mix-blend-mode: darken;
 }
 
 .aw-llama-wrapper {

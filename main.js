@@ -78,20 +78,20 @@ if (chars404.length === 0) {
   // initial state for 404 chars
   gsap.set(chars404, {
     opacity: 0,
-    y: -50,
+    y: -180,
   });
 
   tl.addLabel('start');
 
-  // clouds
-  tl.to(
+  // Clouds - gentle horizontal drift
+  gsap.fromTo(
     '.aw-clouds',
+    { x: 100 },
     {
-      x: -150,
-      duration: 2.5,
+      x: -200, // 🔵 se moverá solo un poquito hacia la izquierda
+      duration: 25, // 🔵 muy suave
       ease: 'none',
-    },
-    'start'
+    }
   );
 
   // header
@@ -100,7 +100,7 @@ if (chars404.length === 0) {
     {
       clipPath: 'inset(0% 0% 100% 0%)',
       scale: 1.1,
-      duration: 1.15,
+      duration: 1.85,
       ease: 'power3.out',
     },
     'start'
