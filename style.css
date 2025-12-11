@@ -272,8 +272,14 @@ video {
 }
 
 @media (max-width: 767px) {
+  html,
+  body {
+    height: 100dvh;
+  }
+
   .aw-page {
-    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100dvh;
     overflow-y: hidden;
   }
 
@@ -351,7 +357,7 @@ video {
     background: linear-gradient(
       180deg,
       var(--aw-bg-top) 0%,
-      var(--aw-bg-bottom) 65%
+      var(--aw-bg-bottom) 40%
     );
   }
 }
