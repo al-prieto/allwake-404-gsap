@@ -39,7 +39,7 @@ body {
     var(--aw-bg-bottom) 75%
   );
   -webkit-font-smoothing: antialiased;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 img,
@@ -54,7 +54,7 @@ video {
 
 .aw-page {
   min-height: 100vh;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
 }
@@ -143,7 +143,7 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .aw-hero-bg {
@@ -151,7 +151,7 @@ video {
   inset: 0;
   width: 100%;
   height: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
   z-index: 0;
 }
 
@@ -351,7 +351,7 @@ video {
     background: linear-gradient(
       180deg,
       var(--aw-bg-top) 0%,
-      var(--aw-bg-bottom) 65%
+      #ffffff 60% /* var(--aw-bg-bottom) 65% */
     );
   }
 }
