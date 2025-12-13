@@ -26,6 +26,8 @@ body {
   --aw-logo-text: #ffffff;
   --aw-btn-fill-start: #ffffff;
   --aw-btn-fill-end: #f9f9f9;
+
+  --llama-max: clamp(560px, 38vw, 680px);
 }
 
 body {
@@ -230,7 +232,7 @@ video {
 
 .aw-llama-video {
   width: 100%;
-  max-width: 550px;
+  max-width: var(--llama-max);
   min-width: 280px;
   height: auto;
 }
@@ -269,9 +271,15 @@ video {
     font-size: clamp(200px, 50vw, 500px);
     transform: translateY(-10%);
   }
+  :root {
+    --llama-max: 550px;
+  }
 }
 
 @media (max-width: 767px) {
+  :root {
+    --llama-max: 300px;
+  }
   .aw-hero-bg {
     background: linear-gradient(
       180deg,
